@@ -2,7 +2,7 @@
 
 ### What is this?
 
-A quick and dirty parsing tools create an item db json for https://backlayouts.com/
+A quick and dirty parsing tools to create an item db json for https://backlayouts.com/
 
 ### The code sucks and is horrible
 
