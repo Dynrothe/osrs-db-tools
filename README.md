@@ -14,7 +14,13 @@ First, download the latest cache dump from [here](https://github.com/abextm/osrs
 
 Recommended but not entirely necessary, depends how much you hate Runelite. Clone [static.runelite.net](https://github.com/runelite/static.runelite.net) repository and copy the contents of `icon` folder from `/cache/item/` into the `icon` folder in this project. (Refer to the dad joke above)
 
-Run the command of your choosing:
+
+Next run
+```
+npm install
+```
+
+Then run the CLI command of your choosing:
 
 Creates `item-db.json` from scratch.
 
