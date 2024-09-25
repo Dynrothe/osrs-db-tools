@@ -2,7 +2,7 @@
   "name": "osrs-db-tools",
   "version": "1.0.0",
   "description": "A tool to parse osrs item cache",
-  "main": "item-data-formatter.js",
+  "main": "itemDatabase.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
