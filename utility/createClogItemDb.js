@@ -1,12 +1,6 @@
 const fs = require("fs");
-const base64Encode = require("./base64Encode.js");
-const getClogItemNames = require("./getClogItemNames.js");
-const path = require("path");
-const dirPath = "./item_defs";
+const getClogItemIds = require("./getClogItemIds.js");
 
-const items = [];
-let finalJson = {};
-let index = 1;
 let itemDb;
 
 module.exports = async () => {
@@ -18,15 +12,11 @@ module.exports = async () => {
   }
 
   const itemDbParsed = JSON.parse(itemDb);
-  const clogNames = await getClogItemNames();
-  let filteredClogs = new Set();
+  const clogItems = await getClogItemIds();
 
-  Object.values(itemDbParsed).filter((item) => {
-    if (clogNames.includes(item.name) && !filteredClogs.has(item)) filteredClogs.add(item);
-  });
+  const scrapedIDSet = new Set(clogItems.map((id) => id.trim()));
 
-  console.log("Clog name list:", clogNames.length);
-  console.log("Final clog list:", uniqueArray.length);
+  const matchingItems = Object.values(itemDbParsed).filter((item) => scrapedIDSet.has(item.id.toString()));
 
-  //fs.writeFileSync("./clog-db.json", JSON.stringify(filteredClogs));
+  fs.writeFileSync("./clog-db.json", JSON.stringify(matchingItems));
 };
