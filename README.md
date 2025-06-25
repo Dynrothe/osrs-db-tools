@@ -46,7 +46,7 @@ Updates **NEW** items in `item-db.json` with icons from `static.runelite.net` (S
 node .\itemDatabase.js --iconsFromRunelite
 ```
 
-Creates `clog-db.json` from scratch, which contains only the items found in the Collection Log **(DOES NOT WORK)**
+Creates `clog-db.json` from scratch, which contains only the items found in the Collection Log
 
 ```
 node .\itemDatabase.js --clog
