@@ -2,6 +2,7 @@ const fs = require("fs");
 const getClogItemIds = require("./getClogItemIds.js");
 
 let itemDb;
+let finalJson = {};
 
 module.exports = async () => {
   try {
@@ -18,5 +19,16 @@ module.exports = async () => {
 
   const matchingItems = Object.values(itemDbParsed).filter((item) => scrapedIDSet.has(item.id.toString()));
 
-  fs.writeFileSync("./clog-db.json", JSON.stringify(matchingItems));
+  matchingItems.forEach((item) => {
+    finalJson[item.id] = {
+      id: item.id,
+      name: item.name,
+      isTradeable: item.isTradeable,
+      placeholderId: item.placeholderId,
+      notedId: item.notedId,
+      icon: item.icon,
+    };
+  });
+
+  fs.writeFileSync("./clog-db.json", JSON.stringify(finalJson));
 };
